@@ -14,3 +14,11 @@ handlers:
 - url: /ui.js
   static_files: static/html/ui.js
   upload: static/html/ui.js
+
+- url: /js/bootstrap-slider.min.js
+  static_files: static/html/js/bootstrap-slider.min.js
+  upload: static/html/js/bootstrap-slider.min.js
+
+- url: /css/bootstrap-slider.min.css
+  static_files: static/html/css/bootstrap-slider.min.css
+  upload: static/html/css/bootstrap-slider.min.css
