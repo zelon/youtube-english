@@ -10,4 +10,7 @@ handlers:
 
 - url: /hello
   script: _go_app
-    
+
+- url: /ui.js
+  static_files: static/html/ui.js
+  upload: static/html/ui.js

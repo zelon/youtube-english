@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="search">
+  		<form>
+  			<input id="url" type="text" placeholder="youtube 주소를 입력하세요" width="1200"/>
+  		  <button onclick="onUrl();">Go</button>
+  		</form>
+    </div>
     <div id="player"></div>
 
+    <script lang="javascript" src="ui.js"></script>
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -21,15 +27,17 @@
           width: '640',
           videoId: 'M7lc1UVf-VE',
           events: {
-            'onReady': onPlayerReady,
+            'onReady': onYoutubePlayerReady,
             'onStateChange': onPlayerStateChange
           }
         });
       }
 
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
+      // 유투브 플레이어가 준비되면 불리는 콜백 함수
+      function onYoutubePlayerReady(event) {
         event.target.playVideo();
+
+        make_rate_buttons();
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -47,30 +55,10 @@
       }
     </script>
 
-		<script lang="javascript">
-		function onUrl() {
-			var url = document.getElementById("url").value;
-			player.loadVideoByUrl("http://www.youtube.com/v/xruZHVN8OZ8?version=3");
-		}
+    <div id="repeat"></div>
+    <div id="rate">속도 조절 기능</div>
 
-		function rate() {
-			var rate_list = player.getAvailablePlaybackRates();
-			player.setPlaybackRate(0.5);
-		}
-
-		function options() {
-			var option_list = player.getOptions();
-			var get_option = "fontSize";
-			var caption = player.getOption("captions", get_option);
-			//player.setPlaybackRate(0.5);
-		}
-		</script>
-			<button onclick="onUrl();">Go</button>
-			<button onclick="rate();">Rate</button>
-			<button onclick="options();">Option</button>
-		<form>
-			<input id="url" type="text" placeholder="youtube 주소를 입력하세요" width="1200"/>
-		</form>
+		<button onclick="options();">Option</button>
 
   </body>
 </html>
