@@ -22,10 +22,3 @@ function onUrl() {
 	var url = document.getElementById("url").value;
 	player.loadVideoByUrl("http://www.youtube.com/v/xruZHVN8OZ8?version=3");
 }
-
-function options() {
-	var option_list = player.getOptions();
-	var get_option = "fontSize";
-	var caption = player.getOption("captions", get_option);
-	//player.setPlaybackRate(0.5);
-}
