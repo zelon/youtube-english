@@ -54,22 +54,41 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <br/>
     <div class="row">
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8">
             <div id="player"></div>
-            <div id="repeat">
+            <div>
               <br/>
-              <input id="progress-bar" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-handle="triangle" style="width: 640px;"/>
-              <br/>
-              <input id="repeat-bar" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]" style="width: 640px;"/>
             </div>
-            <div id="rate">속도 조절 기능</div>
           </div>
           <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2" align="right">Current:</div>
+          <div class="col-md-10">
+            <input id="progress-bar" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-handle="triangle" style="width: 640px;"/>
+          </div>
+          <div class="col-md-2" align="right">Repeat:</div>
+          <div class="col-md-10">
+            <input id="repeat-bar" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]" style="width: 640px;"/>
+          </div>
+          <div class="col-md-2" align="right">Speed Rate:</div>
+          <div class="col-md-10">
+            <div id="rate"></div>
+          </div>
+          <div class="col-md-2" align="right">Playback:</div>
+          <div class="col-md-10">
+            <button onclick="BackSeconds(5);">5 seconds back</button>
+            <button onclick="BackSeconds(10);">10 seconds back</button>
+          </div>
+          <div class="col-md-2" align="right">Caption:</div>
+          <div class="col-md-10">
+            <button onclick="TurnOnCaption();">On</button>
+            <button onclick="TurnOffCaption();">Off</button>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
@@ -132,6 +151,7 @@
     var progress_bar_slider = $("#progress-bar").slider({ tooltip: 'always' });
     var repeat_bar_slider = $("#repeat-bar").slider({});
     $(document).ready(function(){
+      setTimeout(OnTimer, 500);
     });
     </script>
   </body>

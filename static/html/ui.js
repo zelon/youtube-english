@@ -2,15 +2,15 @@
 function make_rate_buttons() {
   var rate_div = document.getElementById("rate");
 	var rate_list = player.getAvailablePlaybackRates();
-  var html = "속도 조절 :";
+  var html = "";
 
   if (rate_list.length == 0) {
-    rate_div.innerHTML = html + " 불가능";
+    rate_div.innerHTML = "Disabled";
     return;
   }
   for (var i=0; i<rate_list.length; ++i) {
     var speed = rate_list[i];
-    html += "&nbsp;<button onclick='set_rate(" + speed + ");'>" + speed + "</button>";
+    html += "<button onclick='set_rate(" + speed + ");'>" + speed + "x</button>";
   }
   rate_div.innerHTML = html;
 }
@@ -50,18 +50,40 @@ function check_repeat() {
 }
 
 function OnTimer() {
+  setTimeout(OnTimer, 500);
+
+  if (player == null) {
+    return;
+  }
   var current = player.getCurrentTime();
   progress_bar_slider.slider('setValue', current);
 
   check_repeat();
-
-  setTimeout(OnTimer, 500);
 }
 
 function onYoutubePlayingStarted() {
   set_progressbar_values_by_video();
-  setTimeout(OnTimer, 500);
 }
+
+function TurnOnCaption() {
+  player.loadModule("captions");
+  player.setOption("captions", "track", {"languageCode":"en"});
+}
+
+function TurnOffCaption() {
+  player.unloadModule("captions");
+}
+
+function BackSeconds(seconds) {
+  var current = player.getCurrentTime();
+  var new_position = current - seconds;
+
+  if (new_position < 0) {
+    new_position = 0;
+  }
+  player.seekTo(new_position);
+}
+
 /*
  현재 재생 시간(초) : player.getCurrentTime():Number
  전체 재생 시간 : player.getDuration():Number 단, 재생이 시작된 직후부터 가능. 이전에는 0 이 반환됨
