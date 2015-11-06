@@ -22,3 +22,8 @@ handlers:
 - url: /css/bootstrap-slider.min.css
   static_files: static/html/css/bootstrap-slider.min.css
   upload: static/html/css/bootstrap-slider.min.css
+
+- url: /css/bootstrap.min.css
+  static_files: static/html/css/bootstrap.min.css
+  upload: static/html/css/bootstrap.min.css
+
