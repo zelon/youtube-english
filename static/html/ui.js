@@ -1,4 +1,22 @@
 
+function GetVideoIdFromUrl(url) {
+  // url = https://www.youtube.com/watch?v=RPISHaOIg6M
+  var find_index = url.indexOf("?v=");
+  if (find_index < 0) {
+    return "";
+  }
+  return url.substr(find_index + 3, 11);
+}
+
+function GetQueryStringFromAddressBar() {
+  var current_url = unescape(window.location.href);
+  var after_q_index = current_url.indexOf("?q=");
+  if (after_q_index < 0) {
+    return "";
+  }
+  return current_url.substr(after_q_index + 3);
+}
+
 function make_rate_buttons() {
   var rate_div = document.getElementById("rate");
 	var rate_list = player.getAvailablePlaybackRates();
@@ -52,7 +70,10 @@ function check_repeat() {
 function OnTimer() {
   setTimeout(OnTimer, 500);
 
-  if (player == null) {
+  if (!player) {
+    return;
+  }
+  if (!player.getCurrentTime) {
     return;
   }
   var current = player.getCurrentTime();
