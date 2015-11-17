@@ -1,11 +1,11 @@
 
 function GetVideoIdFromUrl(url) {
   // url = https://www.youtube.com/watch?v=RPISHaOIg6M
-  var find_index = url.indexOf("?v=");
+  var find_index = url.indexOf("v=");
   if (find_index < 0) {
     return "";
   }
-  return url.substr(find_index + 3, 11);
+  return url.substr(find_index + 2, 11);
 }
 
 function GetQueryStringFromAddressBar() {
@@ -15,6 +15,10 @@ function GetQueryStringFromAddressBar() {
     return "";
   }
   return current_url.substr(after_q_index + 3);
+}
+
+function GetCurrentVideoId() {
+  return GetVideoIdFromUrl(player.getVideoUrl());
 }
 
 function make_rate_buttons() {

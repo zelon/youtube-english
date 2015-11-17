@@ -1,4 +1,4 @@
-package hello
+package youtube_english
 
 import (
     "fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 func init() {
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/hello", handler)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

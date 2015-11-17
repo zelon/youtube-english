@@ -11,6 +11,12 @@ handlers:
 - url: /hello
   script: _go_app
 
+- url: /db/insert
+  script: _go_app
+
+- url: /db/select
+  script: _go_app
+
 - url: /ui.js
   static_files: static/html/ui.js
   upload: static/html/ui.js
