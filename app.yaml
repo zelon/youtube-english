@@ -8,6 +8,10 @@ handlers:
   static_files: static/html/index.htm
   upload: static/html/index.htm
 
+- url: /view.htm
+  static_files: static/html/view.htm
+  upload: static/html/view.htm
+
 - url: /hello
   script: _go_app
 
