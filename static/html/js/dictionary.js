@@ -72,6 +72,10 @@ function RequestSearchedWord() {
   }).done(function(msg) {
     var jsoned = JSON.parse(msg);
 
+    if (!jsoned) {
+      return;
+    }
+
     var words = "";
     for (var i=0; i<jsoned.length; ++i) {
       words = words + " " + MakeLinkFromWord(jsoned[i].Word);
