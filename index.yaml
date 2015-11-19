@@ -14,3 +14,9 @@ indexes:
   properties:
   - name: VideoId
   - name: Position
+
+- kind: SearchedWord
+  properties:
+  - name: VideoId
+  - name: Position
+    direction: desc

@@ -34,10 +34,11 @@ func insert_handler(w http.ResponseWriter, r *http.Request) {
 
 func select_handler(w http.ResponseWriter, r *http.Request) {
     context := appengine.NewContext(r)
-    //video_id := r.FormValue("video_id")
-    query := datastore.NewQuery("SearchedWord")
-                        //Order("Position")
-                        //Filter("VideoId =", video_id).
+    video_id := r.FormValue("video_id")
+    context.Infof("select video_id:%s", video_id)
+    query := datastore.NewQuery("SearchedWord").
+                        Filter("VideoId =", video_id).
+                        Order("Position")
 
     var words []SearchedWord
     _, err := query.GetAll(context, &words)
@@ -64,7 +65,7 @@ func select_handler(w http.ResponseWriter, r *http.Request) {
 type SearchedWord struct {
   VideoId  string
   Word     string
-  Position int `datastore:",noindex"`
+  Position int
 }
 
 func db_insert(context appengine.Context, video_id string, word string, position int) {
