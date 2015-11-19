@@ -21,6 +21,12 @@ handlers:
 - url: /db/select
   script: _go_app
 
+- url: /db/insert_video
+  script: _go_app
+
+- url: /db/select_video
+  script: _go_app
+
 - url: /ui.js
   static_files: static/html/ui.js
   upload: static/html/ui.js

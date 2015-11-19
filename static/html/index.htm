@@ -56,28 +56,31 @@
     </nav>
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to YouTube English</h1>
-        <br />
-        <br />
-        <br />
-        <p align="center">YouTube English 는 YouTube 영상을 통해서 영어 공부를 좀 더 쉽게 할
-        수 있도록 도와주는 여러 기능을 제공합니다</p>
+        <h2>YouTube English 는 YouTube 영상을 통해서 영어 공부를 좀 더 쉽게 할
+        수 있도록 도와주는 여러 기능을 제공합니다</h2>
+        <ul>
+          <li>구간 반복</li>
+          <li>온라인 사전</li>
+          <li>속도 조절</li>
+          <li>쉽게 자막 켜고 끄기</li>
+          <li>5초/10초 앞으로 이동</li>
+        </ul>
       </div>
     </div>
 
+    <div id="watched_videos">
+    </div>
 
     <script lang="javascript" src="ui.js"></script>
+    <script lang="javascript" src="js/index.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="/js/bootstrap-slider.min.js"></script>
     <script>
-    var progress_bar_slider = $("#progress-bar").slider({ tooltip: 'always' });
-    var repeat_bar_slider = $("#repeat-bar").slider({});
     $(document).ready(function(){
-      setTimeout(OnTimer, 500);
-      InitializeDictionaryButtons();
+      InitializeFrontPage();
     });
     </script>
   </body>
