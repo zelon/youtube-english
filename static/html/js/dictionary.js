@@ -1,21 +1,28 @@
 
 var dictionary_data = {
-  "google": {
-    search_button_name:"Google Dictionary",
-    input_value:"google",
-    search_url: "https://translate.google.com/#en/ko/"
-  },
   "daum": {
     search_button_name:"Daum Dictionary",
     input_value:"daum",
     search_url: "http://small.dic.daum.net/search.do?q="
   },
-  "naver": {
-    search_button_name:"Naver Dictionary",
-    input_value:"naver",
-    search_url: "http://endic.naver.com/popManager.nhn?sLn=kr&m=search&searchOption=&query="
+  "longman": {
+    search_button_name:"Longman Dictionary",
+    input_value:"longman",
+    search_url: "http://www.ldoceonline.com/search/?q="
   }
 };
+
+function InitializeDictionaryButtons() {
+  jQuery("#dic_daum").click(function(e){
+    SetDictionary("daum");
+    e.preventDefault();
+  });
+  jQuery("#dic_longman").click(function(e){
+    SetDictionary("longman");
+    e.preventDefault();
+  });
+  SetDictionary("daum");
+}
 
 function SetDictionary(dictionary_name) {
   var form_data = document.getElementById("dictionary_type");

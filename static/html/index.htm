@@ -107,9 +107,8 @@
                 <button type="button" class="btn btn-default" id="dictionary_search_button" onclick="SearchDictionary();">...</button>
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#" id="dic_google">Google Dictionary</a></li>
                   <li><a href="#" id="dic_daum">Daum Dictionary</a></li>
-                  <li><a href="#" id="dic_naver">Naver Dictionary</a></li>
+                  <li><a href="#" id="dic_longman">Longman Dictionary</a></li>
                 </ul>
               </div>
             </div>
@@ -181,19 +180,7 @@
     var repeat_bar_slider = $("#repeat-bar").slider({});
     $(document).ready(function(){
       setTimeout(OnTimer, 500);
-      jQuery("#dic_google").click(function(e){
-        SetDictionary("google");
-        e.preventDefault();
-      });
-      jQuery("#dic_daum").click(function(e){
-        SetDictionary("daum");
-        e.preventDefault();
-      });
-      jQuery("#dic_naver").click(function(e){
-        SetDictionary("naver");
-        e.preventDefault();
-      });
-      SetDictionary("google");
+      InitializeDictionaryButtons();
     });
     </script>
   </body>
