@@ -5,12 +5,18 @@ function InitializeFrontPage() {
   }).done(function(msg) {
     var jsoned = JSON.parse(msg);
     var videos = "";
+    var already_included_video_ids = [];
     for (var i=0; i<jsoned.length; ++i) {
+      var video = jsoned[i];
+      if (already_included_video_ids.indexOf(video.VideoId) >=0) {
+        continue;
+      }
+
       if (i == 4) {
         break;
       }
-      videos = videos + " " + MakeLink(jsoned[i]);
-
+      videos = videos + " " + MakeLink(video);
+      already_included_video_ids.push(video.VideoId);
     }
     document.getElementById("watched_videos").innerHTML = videos;
   });
