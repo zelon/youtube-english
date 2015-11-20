@@ -19,11 +19,11 @@ func init() {
 type Video struct {
   VideoId   string
   Duration  int
-  Detail string
+  Detail string `datastore:",noindex"`
 }
 
 func get_detail(video_id string, context appengine.Context) string {
-  get_url := "https://www.googleapis.com/youtube/v3/videos?id=" + video_id + "&key=AIzaSyBOaBUHwNC6OXUFymBnpWjodVAc6SUMquY&part=snippet,statistics&fields=items/snippet/thumbnails,items/statistics"
+  get_url := "https://www.googleapis.com/youtube/v3/videos?id=" + video_id + "&key=AIzaSyBOaBUHwNC6OXUFymBnpWjodVAc6SUMquY&part=snippet,statistics"
 
   context.Infof("url: " + get_url)
 
@@ -53,7 +53,7 @@ func handle_insert_video(w http.ResponseWriter, r *http.Request) {
     context.Infof("Inserting video...")
     context.Infof("video_id: " + video_id)
     context.Infof("duration: " + duration_str)
-    context.Infof("detail: " + detail)
+    //context.Infof("detail: " + detail)
 
     duration_int, err := strconv.Atoi(duration_str)
     if err != nil || duration_int < 0 {

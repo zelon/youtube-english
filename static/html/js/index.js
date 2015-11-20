@@ -51,11 +51,12 @@ function MakeLink(video) {
   var detail = JSON.parse(video.Detail)
   var img = detail.items[0].snippet.thumbnails.high.url;
   var play_url = "view.htm?q=v=" + video.VideoId;
+  var title = detail.items[0].snippet.title;
   var html_template = '<div class="col-sm-3 col-md-3"> \
     <div class="thumbnail"> \
       <a href="' + play_url + '"><img src="' + img + '" alt="..."></a> \
       <div class="caption center"> \
-        <h3>Thumbnail label</h3> \
+        <h4>' + title + '</h4> \
         <p>재생 시간: ' + MakeSecondsEasyToRead(video.Duration) + '</p> \
         <p><a href="' + play_url + '" class="btn btn-primary" role="button">Play</a></p> \
       </div> \
