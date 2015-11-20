@@ -1,4 +1,4 @@
-# youtube-english
+# tube-english
 유투브로 영어공부하기
 
 # 개발환경
@@ -8,4 +8,4 @@ app-engine
 youtube api
 
 # 개발 사이트
-http://youtube-english-1118.appspot.com/
+http://tube-english.appspot.com/

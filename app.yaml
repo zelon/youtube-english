@@ -1,4 +1,4 @@
-application: youtube-english-1118
+application: tube-english
 version: 1
 runtime: go
 api_version: go1

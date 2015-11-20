@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
 
-  "name": "Youtube English",
-  "description": "Open Youtube English by current url",
+  "name": "Tube English",
+  "description": "Open Tube English by current url",
   "version": "1.0",
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_title": "Send to Youtube English"
+    "default_title": "Send to Tube English"
   },
 
   "background": {

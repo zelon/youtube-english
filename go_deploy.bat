@@ -1,1 +1,1 @@
-goapp deploy -application youtube-english-1118 app.yaml
+goapp deploy -application tube-english app.yaml
