@@ -59,11 +59,6 @@ function SearchFromCloud(word) {
   SearchFromIFrame(word);
 }
 
-function MakeLinkFromWord(word) {
-  var html = "<a href='javascript:SearchFromCloud(\"" + word + "\")'>" + word + "</a>";
-  return html;
-}
-
 function RequestSearchedWord() {
   $.ajax({
     method: "POST",
@@ -76,10 +71,26 @@ function RequestSearchedWord() {
       return;
     }
 
-    var words = "";
-    for (var i=0; i<jsoned.length; ++i) {
-      words = words + " " + MakeLinkFromWord(jsoned[i].Word);
-    }
-    document.getElementById("word_cloud").innerHTML = words;
+    InitializeWordCloud(jsoned);
   });
+}
+
+function InitializeWordCloud(jsoned) {
+  var word_array = [];
+
+  for (var i=0; i<jsoned.length; ++i) {
+    var word = jsoned[i].Word;
+    var found = false;
+    for (var j=0; j<word_array.length; ++j) {
+      if (word_array[j].text == word) {
+        word_array[j].weight = word_array[j].weight + 1;
+        found = true;
+        break;
+      }
+    }
+    if (found == false) {
+      word_array.push({text: jsoned[i].Word, weight: 1, link: { href:'javascript:SearchFromCloud("' + jsoned[i].Word + '");' }});
+    }
+  }
+  $("#word_cloud").jQCloud(word_array);
 }

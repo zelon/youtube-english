@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
   -->
 
+    <link rel="stylesheet" href="/css/jqcloud.css" >
     <link rel="stylesheet" href="/css/bootstrap-slider.min.css" >
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,8 +92,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-2" align="right">word cloud:</div>
-          <div id="word_cloud" class="col-md-8"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div id="word_cloud" align="center" style="width: 550px; height: 250px;"></div>
+          </div>
           <div class="col-md-2"></div>
         </div>
       </div>
@@ -178,6 +181,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="/js/bootstrap-slider.min.js"></script>
+    <script src="/js/jqcloud-1.0.4.min.js"></script>
     <script>
     var progress_bar_slider = $("#progress-bar").slider({ tooltip: 'always' });
     var repeat_bar_slider = $("#repeat-bar").slider({});
