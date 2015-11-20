@@ -66,7 +66,7 @@ function check_repeat() {
   var range = repeat_bar_slider.slider('getValue');
 
   // repeat bar 오른쪽을 지나갔으면, 왼쪽 bar 로 보낸다
-  if (current > range[1]) {
+  if (current >= range[1]) {
     player.seekTo(range[0]);
   }
 }
