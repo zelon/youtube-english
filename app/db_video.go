@@ -23,7 +23,7 @@ type Video struct {
 }
 
 func get_detail(video_id string, context appengine.Context) string {
-  get_url := "https://www.googleapis.com/youtube/v3/videos?id=" + video_id + "&key=AIzaSyDhQf1AvLQKAhLIaK9bz5KEtmls3BXRdn0&part=snippet,statistics&fields=items/snippet/thumbnails,items/statistics"
+  get_url := "https://www.googleapis.com/youtube/v3/videos?id=" + video_id + "&key=AIzaSyBOaBUHwNC6OXUFymBnpWjodVAc6SUMquY&part=snippet,statistics&fields=items/snippet/thumbnails,items/statistics"
 
   context.Infof("url: " + get_url)
 
