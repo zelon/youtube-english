@@ -6,7 +6,7 @@ function InitializeFrontPage() {
     var jsoned = JSON.parse(msg);
     var videos = "";
     for (var i=0; i<jsoned.length; ++i) {
-      if (i == 3) {
+      if (i == 4) {
         break;
       }
       videos = videos + " " + MakeLink(jsoned[i]);
@@ -51,13 +51,13 @@ function MakeLink(video) {
   var detail = JSON.parse(video.Detail)
   var img = detail.items[0].snippet.thumbnails.high.url;
   var play_url = "view.htm?q=v=" + video.VideoId;
-  var html_template = '<div class="col-sm-6 col-md-4"> \
+  var html_template = '<div class="col-sm-3 col-md-3"> \
     <div class="thumbnail"> \
-      <img src="' + img + '" alt="..."> \
-      <div class="caption"> \
+      <a href="' + play_url + '"><img src="' + img + '" alt="..."></a> \
+      <div class="caption center"> \
         <h3>Thumbnail label</h3> \
         <p>재생 시간: ' + MakeSecondsEasyToRead(video.Duration) + '</p> \
-        <p><a href="' + play_url + '" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> \
+        <p><a href="' + play_url + '" class="btn btn-primary" role="button">Play</a></p> \
       </div> \
     </div> \
   </div> \
