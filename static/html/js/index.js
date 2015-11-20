@@ -28,7 +28,23 @@ function InsertVideo() {
 }
 
 function MakeSecondsEasyToRead(seconds) {
-  return seconds;
+  var output = "";
+  var kHour = 60 * 60;
+  var kMinute = 60;
+  if (seconds > hour) {
+    var hour = Math.floor(seconds / kHour);
+    output = output + hour + "시간 ";
+    seconds -= hour * kHour;
+  }
+  if (seconds > kMinute) {
+    var minutes = Math.floor(seconds / kMinute);
+    output = output + minutes + "분 ";
+    seconds -= minutes * kMinute;
+  }
+  if (seconds > 0) {
+    output = output + seconds + "초";
+  }
+  return output;
 }
 
 function MakeLink(video) {
@@ -40,7 +56,7 @@ function MakeLink(video) {
       <img src="' + img + '" alt="..."> \
       <div class="caption"> \
         <h3>Thumbnail label</h3> \
-        <p>재생 시간: ' + MakeSecondsEasyToRead(video.Duration) + ' 초</p> \
+        <p>재생 시간: ' + MakeSecondsEasyToRead(video.Duration) + '</p> \
         <p><a href="' + play_url + '" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> \
       </div> \
     </div> \
