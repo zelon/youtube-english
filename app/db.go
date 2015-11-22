@@ -37,8 +37,7 @@ func select_handler(w http.ResponseWriter, r *http.Request) {
     video_id := r.FormValue("video_id")
     context.Infof("select video_id:%s", video_id)
     query := datastore.NewQuery("SearchedWord").
-                        Filter("VideoId =", video_id).
-                        Order("Position")
+                        Filter("VideoId =", video_id)
 
     var words []SearchedWord
     _, err := query.GetAll(context, &words)
