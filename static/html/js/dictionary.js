@@ -1,12 +1,12 @@
 
 var dictionary_data = {
   "daum": {
-    search_button_name:"Daum Dictionary",
+    search_button_name:"Daum",
     input_value:"daum",
     search_url: "http://small.dic.daum.net/search.do?q="
   },
   "longman": {
-    search_button_name:"Longman Dictionary",
+    search_button_name:"Longman",
     input_value:"longman",
     search_url: "http://www.ldoceonline.com/search/?q="
   }
@@ -65,6 +65,10 @@ function RequestSearchedWord() {
     url: "/db/select",
     data: { video_id:GetCurrentVideoId()}
   }).done(function(msg) {
+    if (msg =="") {
+      document.getElementById("word_cloud").innerHTML = "No word yet";
+      return;
+    }
     var jsoned = JSON.parse(msg);
 
     if (!jsoned) {
