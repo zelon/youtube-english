@@ -109,6 +109,18 @@ function BackSeconds(seconds) {
   player.seekTo(new_position);
 }
 
+function ResizePlayer() {
+  if (!player) {
+    return;
+  }
+  if (player) {
+    var outer_width = document.getElementById("player_outer").offsetWidth;
+
+    var new_width = Math.floor(outer_width);
+    var new_height = Math.floor(390 * new_width / 640);
+    player.setSize(new_width, new_height);
+  }
+}
 /*
  현재 재생 시간(초) : player.getCurrentTime():Number
  전체 재생 시간 : player.getDuration():Number 단, 재생이 시작된 직후부터 가능. 이전에는 0 이 반환됨

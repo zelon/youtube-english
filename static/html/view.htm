@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Tube English</title>
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Latest compiled and minified CSS -->
     <!--
@@ -59,22 +60,25 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-2"></div>
-          <div class="col-md-8">
+          <div id="player_outer" class="col-md-10">
             <div id="player"></div>
             <div>
               <br/>
             </div>
           </div>
-          <div class="col-md-2"></div>
         </div>
         <div class="row">
-          <div class="col-md-2" align="right">Current:</div>
-          <div class="col-md-10">
-            <input id="progress-bar" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-handle="triangle" style="width: 640px;"/>
+          <div class="col-md-2 col-sm-2" align="right">Current:</div>
+          <div class="col-md-10 col-sm-10">
+            <div class="progress_bar_outer">
+              <input id="progress-bar" class="position_slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-handle="triangle" style="width: 100%;" />
+            </div>
           </div>
           <div class="col-md-2" align="right">Repeat:</div>
           <div class="col-md-10">
-            <input id="repeat-bar" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]" style="width: 640px;"/>
+            <div class="progress_bar_outer">
+              <input id="repeat-bar" type="text" class="span2 position_slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]" style="width: 100%;" />
+            </div>
           </div>
           <div class="col-md-2" align="right">Speed Rate:</div>
           <div class="col-md-10">
@@ -93,13 +97,11 @@
         </div>
         <div class="row">
           <div class="col-md-2"></div>
-          <div class="col-md-8">
+          <div class="col-md-10">
             <div id="word_cloud" align="center" style="width: 550px; height: 200px;"></div>
           </div>
-          <div class="col-md-2"></div>
-        </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3 col-md-offset-1">
         <div class="row">
           <div class="col-md-10">
           <form action="javascript:SearchDictionary();">
@@ -162,6 +164,7 @@
       function onYoutubePlayerReady(event) {
         event.target.playVideo();
 
+        ResizePlayer();
         make_rate_buttons();
         RequestSearchedWord();
         InsertVideo();
@@ -188,6 +191,10 @@
     $(document).ready(function(){
       setTimeout(OnTimer, 500);
       InitializeDictionaryButtons();
+      $(window).resize(function(){
+        ResizePlayer();
+      });
+
     });
     </script>
   </body>
