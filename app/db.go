@@ -43,7 +43,7 @@ func select_handler(w http.ResponseWriter, r *http.Request) {
     var words []SearchedWord
     _, err := query.GetAll(context, &words)
     if err != nil {
-      context.Errorf("Cannot get words")
+      context.Errorf("Cannot get words: " + err.Error())
       return
     }
     context.Infof("len: %d", len(words))
@@ -56,7 +56,7 @@ func select_handler(w http.ResponseWriter, r *http.Request) {
 
     jsoned, err := json.Marshal(words)
     if err != nil {
-      context.Errorf("Cannot json, err:")
+      context.Errorf("Cannot json, err:" + err.Error())
       return
     }
     fmt.Fprint(w, string(jsoned))
@@ -77,7 +77,7 @@ func db_insert(context appengine.Context, video_id string, word string, position
 
   key, err := datastore.Put(context, datastore.NewIncompleteKey(context, "SearchedWord", nil), &searched_word)
   if err != nil {
-    context.Errorf("datastore put error")
+    context.Errorf("datastore put error: " + err.Error())
     return
   }
   context.Infof("datastore put good job")
