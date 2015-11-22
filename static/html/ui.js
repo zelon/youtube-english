@@ -116,7 +116,7 @@ function ResizePlayer() {
   if (player) {
     var outer_width = document.getElementById("player_outer").offsetWidth;
 
-    var new_width = Math.floor(outer_width);
+    var new_width = Math.min(900, Math.floor(outer_width));
     var new_height = Math.floor(390 * new_width / 640);
     player.setSize(new_width, new_height);
   }
