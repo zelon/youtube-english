@@ -9,3 +9,8 @@ youtube api
 
 # 개발 사이트
 http://tube-english.appspot.com/
+
+# ToDo
+* 모바일 레이아웃 지원
+* 단어 클라우드로 단어 게임
+* 깃헙 주소 연결
