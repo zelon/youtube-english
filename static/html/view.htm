@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -56,15 +56,11 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class="row">
+    <div class="container-fluid">
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-2"></div>
-          <div id="player_outer" class="col-md-10">
+          <div id="player_outer" align="center">
             <div id="player"></div>
-            <div>
-              <br/>
-            </div>
           </div>
         </div>
         <div class="row">
@@ -74,21 +70,29 @@
               <input id="progress-bar" class="position_slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-handle="triangle" style="width: 100%;" />
             </div>
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-2" align="right">Repeat:</div>
           <div class="col-md-10">
             <div class="progress_bar_outer">
               <input id="repeat-bar" type="text" class="span2 position_slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]" style="width: 100%;" />
             </div>
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-2" align="right">Speed Rate:</div>
           <div class="col-md-10">
             <div id="rate"></div>
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-2" align="right">Playback:</div>
           <div class="col-md-10">
             <button onclick="BackSeconds(5);">5 seconds back</button>
             <button onclick="BackSeconds(10);">10 seconds back</button>
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-2" align="right">Caption:</div>
           <div class="col-md-10">
             <button onclick="TurnOnCaption();">On</button>
@@ -100,17 +104,18 @@
           <div class="col-md-10">
             <div id="word_cloud" align="center" style="width: 550px; height: 200px;"></div>
           </div>
+        </div>
       </div>
       <div class="col-md-3 col-md-offset-1">
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-12">
           <form action="javascript:SearchDictionary();">
             <div class="input-group">
-              <input type="text" id="search_word" class="form-control" placeholder="Put a word to search" aria-label="...">
+              <input type="text" id="search_word" class="form-control" placeholder="검색할 단어를 입력하세요" aria-label="...">
               <div class="input-group-btn">
                 <input type="hidden" id="dictionary_type" value="">
-                <button type="button" class="btn btn-default" id="dictionary_search_button" onclick="SearchDictionary();">...</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                <button type="button" class="btn btn-default-sm" id="dictionary_search_button" onclick="SearchDictionary();">...</button>
+                <button type="button" class="btn btn-default-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><a href="#" id="dic_daum">Daum Dictionary</a></li>
                   <li><a href="#" id="dic_longman">Longman Dictionary</a></li>
@@ -119,13 +124,11 @@
             </div>
           </form>
           </div>
-          <div class="col-md-2"></div>
         </div>
         <div class="row">
-          <div class="col-md-10">
-            <iframe id="embed_dictionary" src="" width="100%" height="680px"></iframe>
+          <div class="col-md-12">
+            <iframe id="embed_dictionary" src="" style="width:100%; height:680px;" ></iframe>
           </div>
-          <div class="col-md-2">
         </div>
       </div>
     </div>
