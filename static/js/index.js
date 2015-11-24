@@ -12,11 +12,11 @@ function InitializeFrontPage() {
         continue;
       }
 
-      if (i == 4) {
-        break;
-      }
       videos = videos + " " + MakeLink(video);
       already_included_video_ids.push(video.VideoId);
+      if (already_included_video_ids.length == 4) {
+        break;
+      }
     }
     document.getElementById("watched_videos").innerHTML = videos;
   });
