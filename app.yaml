@@ -12,13 +12,6 @@ handlers:
   static_files: static/html/view.htm
   upload: static/html/view.htm
 
-- url: /quiz.htm
-  static_files: static/html/quiz.htm
-  upload: static/html/quiz.htm
-
-- url: /hello
-  script: _go_app
-
 - url: /db/insert
   script: _go_app
 
