@@ -38,7 +38,7 @@ function SearchDictionary() {
 
   $.ajax({
     method: "POST",
-    url: "/db/insert",
+    url: "/db/insert_word",
     data: { video_id:GetCurrentVideoId(), word:word, position:current_playing_seconds}
   });
 
@@ -62,7 +62,7 @@ function SearchFromCloud(word) {
 function RequestSearchedWord() {
   $.ajax({
     method: "POST",
-    url: "/db/select",
+    url: "/db/select_word",
     data: { video_id:GetCurrentVideoId()}
   }).done(function(msg) {
     if (msg =="") {

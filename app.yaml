@@ -5,17 +5,17 @@ api_version: go1
 
 handlers:
 - url: /
-  static_files: static/html/index.htm
-  upload: static/html/index.htm
+  static_files: static/htm/index.htm
+  upload: static/htm/index.htm
 
 - url: /view.htm
-  static_files: static/html/view.htm
-  upload: static/html/view.htm
+  static_files: static/htm/view.htm
+  upload: static/htm/view.htm
 
-- url: /db/insert
+- url: /db/insert_word
   script: _go_app
 
-- url: /db/select
+- url: /db/select_word
   script: _go_app
 
 - url: /db/insert_video
@@ -24,12 +24,8 @@ handlers:
 - url: /db/select_video
   script: _go_app
 
-- url: /ui.js
-  static_files: static/html/ui.js
-  upload: static/html/ui.js
-
 - url: /js
-  static_dir: static/html/js
+  static_dir: static/js
 
 - url: /css
-  static_dir: static/html/css
+  static_dir: static/css
