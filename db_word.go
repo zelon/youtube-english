@@ -11,14 +11,6 @@ import (
 	"cloud.google.com/go/datastore"
 )
 
-func RegisterInsertWordHandler() {
-	http.HandleFunc("/db/insert_word", insert_handler)
-}
-
-func RegisterSelectWordHandler() {
-	http.HandleFunc("/db/select_word", select_handler)
-}
-
 func insert_handler(w http.ResponseWriter, r *http.Request) {
 	video_id := r.FormValue("video_id")
 	word := r.FormValue("word")

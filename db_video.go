@@ -12,14 +12,6 @@ import (
 	"cloud.google.com/go/datastore"
 )
 
-func RegisterInsertVideoHandler() {
-	http.HandleFunc("/db/insert_video", handle_insert_video)
-}
-
-func RegisterSelectVideoHandler() {
-	http.HandleFunc("/db/select_video", handle_select_video)
-}
-
 type Video struct {
 	VideoId  string
 	Duration int
@@ -49,7 +41,7 @@ func handle_insert_video(w http.ResponseWriter, r *http.Request) {
 
 	duration_int, err := strconv.Atoi(duration_str)
 	if err != nil || duration_int < 0 {
-		log.Fatalf("invalid duration")
+		log.Printf("invalid duration")
 		return
 	}
 
@@ -65,12 +57,14 @@ func insert_video_db(video_id string, duration int, detail string) {
 	ctx := context.Background()
 	client, err := datastore.NewClient(ctx, "tube-english")
 	if err != nil {
-		log.Fatalf("Cannot create client")
+		log.Printf("Cannot create client")
+		return
 	}
 	// https://cloud.google.com/datastore/docs/reference/libraries?hl=ko
 	_, err = client.Put(ctx, datastore.IncompleteKey("Video", nil), &video)
 	if err != nil {
-		log.Fatalf("datastore put error:%v", err)
+		log.Printf("datastore put error:%v", err)
+		return
 	}
 }
 
@@ -78,19 +72,22 @@ func handle_select_video(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	client, err := datastore.NewClient(ctx, "tube-english")
 	if err != nil {
-		log.Fatalf("Failed to create client: %v", err)
+		log.Printf("Failed to create client: %v", err)
+		return
 	}
 	query := datastore.NewQuery("Video")
 
 	var videos []Video
 	_, err = client.GetAll(ctx, query, &videos)
 	if err != nil {
-		log.Fatalf("Cannot get videoes")
+		log.Printf("Cannot get videoes")
+		return
 	}
 
 	jsoned, err := json.Marshal(videos)
 	if err != nil {
-		log.Fatalf("Cannot json, err:" + err.Error())
+		log.Printf("Cannot json, err:" + err.Error())
+		return
 	}
 	fmt.Fprint(w, string(jsoned))
 }
