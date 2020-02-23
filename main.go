@@ -41,20 +41,23 @@ func xmlHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Fprint(writer, "Hello, World!")
 }
 
-func handleIndexHtm(writer http.ResponseWriter, request *http.Request) {
-	log.Printf("handleIndexHtm")
-	t, err := template.ParseFiles("static/htm/index.htm")
+func responseHtm(writer http.ResponseWriter, localPath string) {
+	t, err := template.ParseFiles(localPath)
 	if err != nil {
 		panic(err)
 	}
+
+	writer.Header().Add("Content-Type", "text/html")
+
 	t.Execute(writer, nil)
 }
 
+func handleIndexHtm(writer http.ResponseWriter, request *http.Request) {
+	log.Printf("handleIndexHtm: %s", request.RequestURI)
+	responseHtm(writer, "static/htm/index.htm")
+}
+
 func handleViewHtm(writer http.ResponseWriter, request *http.Request) {
-	log.Printf("handleViewHtm")
-	t, err := template.ParseFiles("static/htm/view.htm")
-	if err != nil {
-		panic(err)
-	}
-	t.Execute(writer, nil)
+	log.Printf("handleViewHtm: %s", request.RequestURI)
+	responseHtm(writer, "static/htm/view.htm")
 }
