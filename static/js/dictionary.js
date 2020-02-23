@@ -1,14 +1,14 @@
 
 var dictionary_data = {
   "daum": {
-    search_button_name:"Daum",
+    search_button_name:"Find in Daum",
     input_value:"daum",
-    search_url: "http://small.dic.daum.net/search.do?q="
+    search_url: "small.dic.daum.net/search.do?q="
   },
   "longman": {
-    search_button_name:"Longman",
-    input_value:"longman",
-    search_url: "http://www.ldoceonline.com/search/?q="
+    search_button_name:"Find in Naver",
+    input_value:"naver",
+    search_url: "endic.naver.com/popManager.nhn?sLn=kr&m=search&searchOption=&query="
   }
 };
 
